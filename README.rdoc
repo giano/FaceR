@@ -2,9 +2,9 @@ This Gem is a very alpha version and is provided as is without any warranty.
 
 I coded it as a convenient and easy interface to face.com's API for a project I'm working on and I must prepone some assumption on using it:
 
-	- you are a brave
-	- you will send images with only ONE recognizable face at time
-	- you expect some errors and bugs and have the bravery and patience to fix them
+* you are a brave
+* you will send images with only ONE recognizable face at time
+*you expect some errors and bugs and have the bravery and patience to fix them
 
 If those requirements are met, go on and use it. If not stop reading and trash the gem...
 
