@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
   s.name = 'facer'
-  s.version = '0.0.4'
+  s.version = '0.0.6'
   s.summary = "Wrapper for face.com API."
   s.description = %{Simple wrapper for face.com api.}
   s.files = Dir['lib/**/*.rb'] + ["init.rb", "Manifest.txt","Gemfile","README.rdoc"]

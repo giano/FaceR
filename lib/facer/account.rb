@@ -8,9 +8,9 @@ module Facer
     # Initialize the class passing a convenient linker reference
     def initialize(linker, app_name,api_key,api_secret)
       @linker=linker
-      @applicationName=applicationName
-      @apiKey=key
-      @apiSecret=secret
+      @applicationName=app_name
+      @apiKey=api_key
+      @apiSecret=api_secret
     end
     
     # Obtain all account's accessible namespaces
