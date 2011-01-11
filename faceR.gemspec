@@ -11,6 +11,7 @@ spec = Gem::Specification.new do |s|
   s.extra_rdoc_files = Dir['[A-Z]*']
   s.rdoc_options << '--title' <<  'Facer'
   s.author = "Stefano Valicchia"
+  s.homepage = "https://github.com/giano/FaceR"
   s.email = "stefano.valicchia@gmail.com"
   s.add_dependency('multipart-post','>= 1.0.1')
   s.add_dependency('json','>= 1.4.6')
