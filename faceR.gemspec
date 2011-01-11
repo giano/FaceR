@@ -3,7 +3,7 @@ spec = Gem::Specification.new do |s|
   s.version = '0.0.4'
   s.summary = "Wrapper for face.com API."
   s.description = %{Simple wrapper for face.com api.}
-  s.files = Dir['lib/**/*.rb'] + ["init.rb", "Manifest.txt","Gemfile","README"]
+  s.files = Dir['lib/**/*.rb'] + ["init.rb", "Manifest.txt","Gemfile","README.rdoc"]
   s.test_files = Dir['test/**/*.rb'] 
   s.require_path = 'lib'
   s.requirements << 'The gem uses multipart-post, mime-types and JSON gem'
