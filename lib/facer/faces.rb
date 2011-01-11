@@ -72,14 +72,16 @@ module Facer
     
     # Associace many images to a user. I assume every images contains a single face
     def associate_multi(images,user,namespace, force_train = false, detector = :Normal)
-      success=true
+      out=[]
       images.each do |image|
-        success &= associate(image,user,namespace,false,detector)
+        resp=associate(image,user,namespace,false,detector) || {"tid" => nil, "infos" => nil}
+        resp["image"]=image
+        out += resp
       end
-      if(success && force_train)
-         return train(user,namespace)
+      if(force_train)
+         train(user,namespace)
       end
-      return success
+      return out
     end
     
     # Associace a face image to a user. I assume the image contains a single face
@@ -92,13 +94,35 @@ module Facer
           ret=@linker.call("tags","save",{"tids" => tid, "uid" => "#{user}@#{namespace}"})
           if(ret["status"].to_sym == :success)
             if(force_train)
-              return train(user,namespace)
+              train(user,namespace)
             end
-            return true
+            return {"tid" => ret["saved_tags"][0]["tid"], "infos" => tag["attributes"]}
           end
         end
       end
-      return false
+      return nil
+    end
+    
+    def deassociate(tid,user,namespace, force_train = false)
+       ret=@linker.call("tags","remove",{"tids" => tid})
+       if(ret["status"].to_sym == :success)
+        if(force_train)
+          train(user,namespace)
+        end
+        return true
+       end
+       return false
+    end
+    
+    def deassociate_multi(tids,user,namespace, force_train = false)
+      out=[]
+      tids.each do |tid|
+        out += {"tid" => tid, "success" => deassociate(tid,user,namespace,false,detector)}
+      end
+      if(force_train)
+         train(user,namespace)
+      end
+      return out
     end
     
     private
