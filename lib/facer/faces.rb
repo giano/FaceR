@@ -96,7 +96,7 @@ module Facer
             if(force_train)
               train(user,namespace)
             end
-            return {"tid" => ret["saved_tags"][0]["tid"], "infos" => tag["attributes"]}
+            return {"tid" => ret["saved_tags"][0]["tid"], "infos" => tag}
           end
         end
       end
