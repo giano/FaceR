@@ -23,5 +23,5 @@ require "facer/faces.rb"
 # Copyright:: Copyright (c) 2011 Giano
 # License::   Distributes under the same terms as Ruby
 module Facer
-  VERSION = "0.0.6"
+  VERSION = "0.0.7"
 end
